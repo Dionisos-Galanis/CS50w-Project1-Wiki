@@ -1,0 +1,16 @@
+{% extends "encyclopedia/layout.html" %}
+
+{% block title %}
+    {{ entry }}
+{% endblock %}
+
+{% block body %}
+    <h1 id="entry404">{{ entry }} is not found</h1>
+
+    {% load static %}
+
+    <div>
+        <img id="img404" src="{% static 'encyclopedia/nf.png' %}" alt="404 Not found">
+    </div>
+
+{% endblock %}
