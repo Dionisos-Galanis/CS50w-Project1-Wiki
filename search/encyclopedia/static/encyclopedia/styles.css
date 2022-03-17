@@ -35,5 +35,40 @@ textarea {
 
 .sidebar h2 {
     margin-top: 5px;
+    width: 170px;
 }
 
+.blockbod {
+    margin-left: 10px;
+    width: calc(90vw - 220px);
+}
+
+.ArtTitleInp {
+    width: fit-content;
+    min-width: 600 px;
+}
+
+.ArtBodyInp {
+    display: block;
+    height: 50vh;
+    width: 100%;
+}
+
+.titAll {
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.labTit {
+    font-size: 110%;
+    margin-right: 10px;
+}
+
+.labBod {
+    font-size: 110%;
+    margin-bottom: 10px;
+}
+
+.subbut {
+    margin-top: 20px;
+}

@@ -1,0 +1,16 @@
+{% extends "encyclopedia/layout.html" %}
+
+{% block title %}
+    Already exists
+{% endblock %}
+
+{% block body %}
+    <h1 id="entryerror">{{ entry }} article already exists</h1>
+
+    {% load static %}
+
+    <div>
+        <img id="imgerror" src="{% static 'encyclopedia/exists.jpg' %}" alt="Error">
+    </div>
+
+{% endblock %}

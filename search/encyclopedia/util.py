@@ -35,3 +35,70 @@ def get_entry(title):
         return f.read().decode("utf-8")
     except FileNotFoundError:
         return None
+
+
+def md2html(mdText):
+    """
+    Converts Markdown text into HTML text
+
+    Keyword arguments:
+    mdText -- string with the markdown formatted text
+    Return: string with HTML formatted text
+    """
+    
+
+    pH1 = re.compile(r"""       # Heading 1
+        ^[#]{1}[ ] (?P<cont>.+)$
+        """, re.MULTILINE | re.VERBOSE)
+
+    pH2 = re.compile(r"""       # Heading 2
+        ^[#]{2}[ ] (?P<cont>.+)$
+        """, re.MULTILINE | re.VERBOSE)
+
+    pH3 = re.compile(r"""       # Heading 3
+        ^[#]{3}[ ] (?P<cont>.+)$
+        """, re.MULTILINE | re.VERBOSE)
+
+    pB = re.compile(r"""        # Bold
+        \*\*(?P<cont>\b.+?\b)\*\*
+        """, re.MULTILINE | re.VERBOSE)
+
+    pI = re.compile(r"""        # Italic
+        \*(?P<cont>\b.+?\b)\*
+        """, re.MULTILINE | re.VERBOSE)
+
+    pUL = re.compile(r"""       # Unordered lists, namely list items
+        ^\s*(\*|-|\+)[ ] (?P<cont>.+)$        # Skipping leading sapces just in case
+        """, re.MULTILINE | re.VERBOSE)
+
+    pLink = re.compile(r"""     # Links
+        \[(?P<ltext>[^\]]+)\]            # HTML of the link
+        \((?P<href>[a-zA-Z:\.\\/]+)\)    # Link itself
+        """, re.MULTILINE | re.VERBOSE)
+
+    pPar = re.compile(r"""      # Regular paragraphs
+        ^(?!([#]+[ ])|(\s*-[ ]))        # Exclude headings and ULs marking atthe beginning
+        (?P<cont>.+)$                   # Content of the paragraph (up to newline)
+        """, re.MULTILINE | re.VERBOSE)
+
+    # Making replacements according to above queries
+
+    print(mdText)
+
+    mdText = pPar.sub(r"<p>\g<cont></p>", mdText)
+
+    mdText = pLink.sub(r"<a href='\g<href>'>\g<ltext></a>", mdText)
+
+    mdText = pUL.sub(r"<ul><li>\g<cont></li></ul>", mdText)
+
+    mdText = pB.sub(r"<b>\g<cont></b>", mdText)
+
+    mdText = pI.sub(r"<i>\g<cont></i>", mdText)
+
+    mdText = pH1.sub(r"<h1>\g<cont></h1>", mdText)
+
+    mdText = pH2.sub(r"<h2>\g<cont></h2>", mdText)
+
+    mdText = pH3.sub(r"<h3>\g<cont></h3>", mdText)
+
+    return mdText
