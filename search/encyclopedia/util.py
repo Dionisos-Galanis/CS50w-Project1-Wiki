@@ -89,11 +89,11 @@ def md2html(mdText):
 
     mdText = pLink.sub(r"<a href='\g<href>'>\g<ltext></a>", mdText)
 
-    mdText = pUL.sub(r"<ul><li>\g<cont></li></ul>", mdText)
-
     mdText = pB.sub(r"<b>\g<cont></b>", mdText)
 
     mdText = pI.sub(r"<i>\g<cont></i>", mdText)
+
+    mdText = pUL.sub(r"<ul><li>\g<cont></li></ul>", mdText)
 
     mdText = pH1.sub(r"<h1>\g<cont></h1>", mdText)
 
