@@ -68,7 +68,7 @@ def md2html(mdText):
         """, re.MULTILINE | re.VERBOSE)
 
     pUL = re.compile(r"""       # Unordered lists, namely list items
-        ^\s*(\*|-|\+)[ ] (?P<cont>.+)$        # Skipping leading sapces just in case
+        [*+-][ ] (?P<cont>.+)$
         """, re.MULTILINE | re.VERBOSE)
 
     pLink = re.compile(r"""     # Links
