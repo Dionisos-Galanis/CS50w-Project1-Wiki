@@ -1,6 +1,6 @@
 # Project1 - Wiki
- CS50w Project 1 - Wiki - with Django
-A very simplifyed version of Wikipedia engine. One can register, login, add, edit, search and review articles.
+ CS50w Project 1 - Wiki - with Django.
+It is a very simplifyed version of Wikipedia engine. One can register, login, add, edit, search and review articles.
 It is an implementation of the below specification:
 1. **Entry Page**: Visiting `/wiki/TITLE`, where `TITLE` is the title of an encyclopedia entry, should render a page that displays the contents of that encyclopedia entry.
  - The view should get the content of the encyclopedia entry by calling the appropriate util function.
