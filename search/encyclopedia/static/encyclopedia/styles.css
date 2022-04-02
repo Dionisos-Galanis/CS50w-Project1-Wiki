@@ -40,7 +40,7 @@ textarea {
 
 .blockbod {
     margin-left: 10px;
-    width: calc(90vw - 220px);
+    width: auto;
 }
 
 .ArtTitleInp {
