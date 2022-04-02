@@ -1,4 +1,4 @@
-# Project1-Wiki-Django
+# Project1 - Wiki
  CS50w Project 1 - Wiki - with Django
 A very simplifyed version of Wikipedia engine. One can register, login, add, edit, search and review articles.
 It is an implementation of the below specification:
